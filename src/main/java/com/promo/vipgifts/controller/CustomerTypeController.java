@@ -22,7 +22,7 @@ public class CustomerTypeController {
     }
 
     @GetMapping("")
-    public List<CustomerTypeDto> getAllCustomerTypes(){
+    public List<CustomerTypeDto> getAllCustomerTypesDTOs(){
         return customerTypeService.getAllCustomerTypesDTOs();
     }
 
