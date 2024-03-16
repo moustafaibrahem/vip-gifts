@@ -18,7 +18,7 @@ public class GiftTypeController {
         this.giftTypeService = giftTypeService;
     }
     @GetMapping("")
-    public List<GiftTypeDto> getAllGiftTypes(){
-        return giftTypeService.getAllGiftTypes();
+    public List<GiftTypeDto> getAllGiftTypesDTOs(){
+        return giftTypeService.getAllGiftTypesDTOs();
     }
 }

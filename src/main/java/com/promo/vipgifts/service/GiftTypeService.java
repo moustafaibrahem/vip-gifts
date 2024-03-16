@@ -19,7 +19,7 @@ public class GiftTypeService {
     private GiftTypeDto mapToDto(GiftType giftType){
         return new GiftTypeDto(giftType.giftTypeName(),giftType.giftTypeDescription());
     }
-    public List<GiftTypeDto> getAllGiftTypes(){
+    public List<GiftTypeDto> getAllGiftTypesDTOs(){
         List<GiftType> giftTypes = (List<GiftType>) giftTypeRepository.findAll();
         return giftTypes.stream().map(this::mapToDto).collect(Collectors.toList());
     }
