@@ -15,7 +15,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/customer-type")
 public class CustomerTypeController {
-    private CustomerTypeService customerTypeService;
+    private final CustomerTypeService customerTypeService;
     @Autowired
     public CustomerTypeController(CustomerTypeService customerTypeService) {
         this.customerTypeService = customerTypeService;

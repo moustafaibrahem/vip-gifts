@@ -11,14 +11,13 @@ import java.util.stream.Collectors;
 
 @Service
 public class CustomerTypeService {
-    private CustomerTypeRepository customerTypeRepository;
+    private final CustomerTypeRepository customerTypeRepository;
     @Autowired
     public CustomerTypeService(CustomerTypeRepository customerTypeRepository) {
         this.customerTypeRepository = customerTypeRepository;
     }
     private CustomerTypeDto mapToDto(CustomerType customerType){
-        CustomerTypeDto customerTypeDto = new CustomerTypeDto(customerType.customerTypeName(), customerType.customerTypeDescription());
-        return customerTypeDto;
+        return  new CustomerTypeDto(customerType.customerTypeName(), customerType.customerTypeDescription());
     }
 
     public List<CustomerTypeDto> getAllCustomerTypes(){
