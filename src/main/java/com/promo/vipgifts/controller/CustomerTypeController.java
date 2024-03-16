@@ -1,14 +1,12 @@
 package com.promo.vipgifts.controller;
 
+import com.promo.vipgifts.dto.CustomerDto;
 import com.promo.vipgifts.dto.CustomerTypeDto;
 import com.promo.vipgifts.entity.CustomerType;
-import com.promo.vipgifts.repository.CustomerTypeRepository;
+import com.promo.vipgifts.service.CustomerService;
 import com.promo.vipgifts.service.CustomerTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -16,14 +14,20 @@ import java.util.List;
 @RequestMapping("/customer-type")
 public class CustomerTypeController {
     private final CustomerTypeService customerTypeService;
+    private final CustomerService customerService;
     @Autowired
-    public CustomerTypeController(CustomerTypeService customerTypeService) {
+    public CustomerTypeController(CustomerTypeService customerTypeService,CustomerService customerService) {
         this.customerTypeService = customerTypeService;
+        this.customerService = customerService;
     }
 
     @GetMapping("")
     public List<CustomerTypeDto> getAllCustomerTypesDTOs(){
         return customerTypeService.getAllCustomerTypesDTOs();
+    }
+    @GetMapping("/{id}/customer")
+    public List<CustomerDto> getCustomersWithCustomerTypeId(@PathVariable("id") Integer id){
+        return customerService.getCustomersWithCustomerTypeId(id);
     }
 
 }

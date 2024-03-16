@@ -23,4 +23,9 @@ public class CustomerService {
         List<Customer> customers = (List<Customer>) customerRepository.findAll();
         return customers.stream().map(this::mapToDto).collect(Collectors.toList());
     }
+    // function return all customers in the specific customer type
+    public List<CustomerDto> getCustomersWithCustomerTypeId(Integer customerTypeId){
+        List<Customer> customers = customerRepository.findAllByCustomerTypeId(customerTypeId);
+        return customers.stream().map(this::mapToDto).collect(Collectors.toList());
+    }
 }
