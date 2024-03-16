@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 
 @Table("GIFT_TYPE")
 public record GiftType(
-        @Id int giftTypeId,
+        @Id Integer giftTypeId,
         String giftTypeName,
         String giftTypeDescription,
         boolean deleted,
