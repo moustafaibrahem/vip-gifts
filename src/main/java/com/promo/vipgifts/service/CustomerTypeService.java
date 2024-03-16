@@ -19,7 +19,6 @@ public class CustomerTypeService {
     private CustomerTypeDto mapToDto(CustomerType customerType){
         return  new CustomerTypeDto(customerType.customerTypeName(), customerType.customerTypeDescription());
     }
-
     public List<CustomerTypeDto> getAllCustomerTypes(){
         List<CustomerType> customerTypes = (List<CustomerType>) customerTypeRepository.findAll();
         return customerTypes.stream().map(this::mapToDto).collect(Collectors.toList());

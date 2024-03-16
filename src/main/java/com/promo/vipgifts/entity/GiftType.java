@@ -5,12 +5,12 @@ import org.springframework.data.relational.core.mapping.Table;
 
 import java.time.LocalDateTime;
 
-@Table("CUSTOMER_TYPE")
-public record CustomerType(
-        @Id Integer customerTypeId,
-        String customerTypeName,
-        String customerTypeDescription,
+@Table("GIFT_TYPE")
+public record GiftType(
+        @Id int giftTypeId,
+        String giftTypeName,
+        String giftTypeDescription,
         boolean deleted,
         LocalDateTime deletedAt
-        ) {
+) {
 }
