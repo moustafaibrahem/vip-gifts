@@ -24,5 +24,12 @@ public interface GiftTypeRepository extends CrudRepository<GiftType,Integer> {
             "WHERE c.customer_phone = :phone \n" +
             "AND rcg.gift_type_id IS NULL;\n")
     List<GiftType> getAvailableGiftTypesByCustomerPhone(@Param("phone") String phone);
+    @Query("SELECT count(gt.gift_type_id)\n" +
+            "FROM public.\"CUSTOMER\" c\n" +
+            "INNER JOIN public.\"REDEEMED_CUSTOMER_GIFT\" rcg ON c.customer_id = rcg.customer_id\n" +
+            "INNER JOIN public.\"GIFT_TYPE\" gt ON rcg.gift_type_id = gt.gift_type_id\n" +
+            "WHERE c.customer_phone = :phone \n" +
+            "AND gt.gift_type_code = :code ;\n")
+    Boolean isGiftTypeTakenByCustomer(@Param("phone") String phone,@Param("code")String code);
 
 }

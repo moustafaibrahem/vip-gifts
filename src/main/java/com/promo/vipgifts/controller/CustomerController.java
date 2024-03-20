@@ -39,4 +39,14 @@ public class CustomerController {
     public List<GiftTypeDto> getAvailableCustomerGiftTypesDTOs(@PathVariable String phone){
         return giftTypeService.getAvailableCustomerGiftTypesDTOs(phone);
     }
+    /**
+     *
+     * @param phone
+     * @param code in this param please send with %23 in the end of it in api
+     * @return true or false
+     */
+    @GetMapping("/{phone}/gift/{code}")
+    public Boolean isGiftTypeTakenByCustomer(@PathVariable String phone, @PathVariable String code){
+        return giftTypeService.isGiftTypeTakenByCustomer(phone,code);
+    }
 }

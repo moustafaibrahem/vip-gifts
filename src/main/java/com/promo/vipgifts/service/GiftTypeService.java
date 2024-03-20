@@ -31,5 +31,9 @@ public class GiftTypeService {
         List<GiftType> giftTypes = giftTypeRepository.getAvailableGiftTypesByCustomerPhone(phone);
         return giftTypes.stream().map(this::mapToDto).collect(Collectors.toList());
     }
+    public Boolean isGiftTypeTakenByCustomer(String phone, String code){
+        return giftTypeRepository.isGiftTypeTakenByCustomer(phone,code);
+    }
+
 
 }
