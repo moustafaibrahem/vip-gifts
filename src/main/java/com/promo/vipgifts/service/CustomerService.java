@@ -17,6 +17,12 @@ public class CustomerService {
     public CustomerService(CustomerRepository customerRepository) {
         this.customerRepository = customerRepository;
     }
+    public Optional<Customer> getCustomer(Integer id){
+        return customerRepository.findById(id);
+    }
+    public Optional<Customer> getCustomerByPhone(String phone){
+        return customerRepository.findByCustomerPhone(phone);
+    }
     private CustomerDto mapToDto(Customer customer){
         return new CustomerDto(customer.customerName(), customer.customerPhone());
     }
@@ -28,7 +34,6 @@ public class CustomerService {
         Optional<Customer> customer = customerRepository.findByCustomerPhone(phone);
         return customer.map(this::mapToDto).orElseGet(() -> new CustomerDto("", ""));
     }
-    // function return all customers in the specific customer type
     public List<CustomerDto> getCustomersWithCustomerTypeId(Integer customerTypeId){
         List<Customer> customers = customerRepository.findAllByCustomerTypeId(customerTypeId);
         return customers.stream().map(this::mapToDto).collect(Collectors.toList());

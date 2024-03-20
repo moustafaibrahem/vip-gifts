@@ -6,8 +6,10 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface GiftTypeRepository extends CrudRepository<GiftType,Integer> {
+    Optional<GiftType> findByGiftTypeCode(String code);
     @Query("select gt.*\n" +
             "from \"GIFT_TYPE\" gt\n" +
             "join \"CUSTOMER_TYPE_GIFT_TYPE\"ctgt ON ctgt.gift_type_id = gt.gift_type_id\n" +
