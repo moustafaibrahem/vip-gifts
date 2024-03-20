@@ -10,6 +10,7 @@ public record GiftType(
         @Id Integer giftTypeId,
         String giftTypeName,
         String giftTypeDescription,
+        String giftTypeCode,
         boolean deleted,
         LocalDateTime deletedAt
 ) {

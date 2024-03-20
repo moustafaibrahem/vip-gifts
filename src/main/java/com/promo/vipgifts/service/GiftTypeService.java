@@ -17,10 +17,14 @@ public class GiftTypeService {
         this.giftTypeRepository = giftTypeRepository;
     }
     private GiftTypeDto mapToDto(GiftType giftType){
-        return new GiftTypeDto(giftType.giftTypeName(),giftType.giftTypeDescription());
+        return new GiftTypeDto(giftType.giftTypeName(),giftType.giftTypeDescription(), giftType.giftTypeCode());
     }
     public List<GiftTypeDto> getAllGiftTypesDTOs(){
         List<GiftType> giftTypes = (List<GiftType>) giftTypeRepository.findAll();
+        return giftTypes.stream().map(this::mapToDto).collect(Collectors.toList());
+    }
+    public List<GiftTypeDto> getAllCustomerGiftTypesDTOs(String phone){
+        List<GiftType> giftTypes = giftTypeRepository.getAllGiftTypesByCustomerPhone(phone);
         return giftTypes.stream().map(this::mapToDto).collect(Collectors.toList());
     }
 }
