@@ -1,0 +1,274 @@
+{
+	"info": {
+		"_postman_id": "85ca4fe5-96f8-443c-affb-85aa9f684ec2",
+		"name": "promo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20226111"
+	},
+	"item": [
+		{
+			"name": "gift type",
+			"item": [
+				{
+					"name": "get all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base}}/gift-type",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"gift-type"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get customer types",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base}}/gift-type/2/customer-type",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"gift-type",
+								"2",
+								"customer-type"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "customer type",
+			"item": [
+				{
+					"name": "get all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base}}/customer-type",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"customer-type"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base}}/customer-type/2",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"customer-type",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get customer",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base}}/customer-type/2/customer",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"customer-type",
+								"2",
+								"customer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get gifts types",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base}}/customer-type/3/gift-type",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"customer-type",
+								"3",
+								"gift-type"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "customer",
+			"item": [
+				{
+					"name": "get all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base}}/customer",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"customer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get by phone",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base}}/customer/1267893079",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"customer",
+								"1267893079"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all gifts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base}}/customer/1267893079/all-gifts",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"customer",
+								"1267893079",
+								"all-gifts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get available gifts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base}}/customer/1206566624/gift",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"customer",
+								"1206566624",
+								"gift"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "checked the gift",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base}}/customer/1267893079/gift/*365*2%23",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"customer",
+								"1267893079",
+								"gift",
+								"*365*2%23"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "redeeme gift",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base}}/customer/1206566624/gift/*365*2%23",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"customer",
+								"1206566624",
+								"gift",
+								"*365*2%23"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base",
+			"value": "http://localhost:8080/api/v1",
+			"type": "string"
+		}
+	]
+}
