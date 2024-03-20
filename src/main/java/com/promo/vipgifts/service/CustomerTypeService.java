@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -22,5 +23,12 @@ public class CustomerTypeService {
     public List<CustomerTypeDto> getAllCustomerTypesDTOs(){
         List<CustomerType> customerTypes = (List<CustomerType>) customerTypeRepository.findAll();
         return customerTypes.stream().map(this::mapToDto).collect(Collectors.toList());
+    }
+    public CustomerTypeDto getCustomerTypeDto(Integer id){
+        Optional<CustomerType> customerTypeOptional = customerTypeRepository.findById(id);
+        if (customerTypeOptional.isPresent())
+            return mapToDto(customerTypeOptional.get());
+        else
+            return new CustomerTypeDto("","");
     }
 }

@@ -25,6 +25,10 @@ public class CustomerTypeController {
     public List<CustomerTypeDto> getAllCustomerTypesDTOs(){
         return customerTypeService.getAllCustomerTypesDTOs();
     }
+    @GetMapping("/{id}")
+    public CustomerTypeDto getCustomerType(@PathVariable("id") Integer id){
+        return customerTypeService.getCustomerTypeDto(id);
+    }
     @GetMapping("/{id}/customer")
     public List<CustomerDto> getCustomersWithCustomerTypeId(@PathVariable("id") Integer id){
         return customerService.getCustomersWithCustomerTypeId(id);
