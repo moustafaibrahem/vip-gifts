@@ -15,4 +15,14 @@ public interface GiftTypeRepository extends CrudRepository<GiftType,Integer> {
             "join \"CUSTOMER\" c ON c.customer_type_id = ct.customer_type_id\n" +
             "where c.customer_phone = :phone")
     List<GiftType> getAllGiftTypesByCustomerPhone(@Param("phone") String phone);
+    @Query("SELECT DISTINCT gt.*\n" +
+            "FROM public.\"GIFT_TYPE\" gt\n" +
+            "INNER JOIN public.\"CUSTOMER_TYPE_GIFT_TYPE\" ctgt ON gt.gift_type_id = ctgt.gift_type_id\n" +
+            "INNER JOIN public.\"CUSTOMER_TYPE\" ct ON ctgt.customer_type_id = ct.customer_type_id\n" +
+            "INNER JOIN public.\"CUSTOMER\" c ON ct.customer_type_id = c.customer_type_id\n" +
+            "LEFT JOIN public.\"REDEEMED_CUSTOMER_GIFT\" rcg ON gt.gift_type_id = rcg.gift_type_id AND c.customer_id = rcg.customer_id\n" +
+            "WHERE c.customer_phone = :phone \n" +
+            "AND rcg.gift_type_id IS NULL;\n")
+    List<GiftType> getAvailableGiftTypesByCustomerPhone(@Param("phone") String phone);
+
 }

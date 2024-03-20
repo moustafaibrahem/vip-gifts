@@ -31,8 +31,12 @@ public class CustomerController {
     public CustomerDto getCustomerByPhone(@PathVariable String phone){
         return customerService.getCustomerDtoByPhone(phone);
     }
-    @GetMapping("/{phone}/gift")
+    @GetMapping("/{phone}/all-gifts")
     public List<GiftTypeDto> getAllCustomerGiftTypesDTOs(@PathVariable String phone){
         return giftTypeService.getAllCustomerGiftTypesDTOs(phone);
+    }
+    @GetMapping("/{phone}/gift")
+    public List<GiftTypeDto> getAvailableCustomerGiftTypesDTOs(@PathVariable String phone){
+        return giftTypeService.getAvailableCustomerGiftTypesDTOs(phone);
     }
 }

@@ -27,4 +27,9 @@ public class GiftTypeService {
         List<GiftType> giftTypes = giftTypeRepository.getAllGiftTypesByCustomerPhone(phone);
         return giftTypes.stream().map(this::mapToDto).collect(Collectors.toList());
     }
+    public List<GiftTypeDto> getAvailableCustomerGiftTypesDTOs(String phone){
+        List<GiftType> giftTypes = giftTypeRepository.getAvailableGiftTypesByCustomerPhone(phone);
+        return giftTypes.stream().map(this::mapToDto).collect(Collectors.toList());
+    }
+
 }
