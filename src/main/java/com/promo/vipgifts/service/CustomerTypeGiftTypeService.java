@@ -18,4 +18,8 @@ public class CustomerTypeGiftTypeService {
     public List<CustomerTypeGiftType> getCustomerTypeGiftTypesByGiftTypeId(Integer id){
         return customerTypeGiftTypeRepository.findCustomerTypeGiftTypesByGiftTypeId(id);
     }
+    //get CustomerTypeGiftTypes By customerTypeId
+    public List<CustomerTypeGiftType> getCustomerTypeGiftTypesByCustomerTypeId(Integer id){
+        return customerTypeGiftTypeRepository.findCustomerTypeGiftTypesByCustomerTypeId(id);
+    }
 }

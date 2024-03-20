@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface CustomerTypeGiftTypeRepository extends CrudRepository<CustomerTypeGiftType,Integer> {
     List<CustomerTypeGiftType> findCustomerTypeGiftTypesByGiftTypeId(Integer id);
+    List<CustomerTypeGiftType> findCustomerTypeGiftTypesByCustomerTypeId(Integer id);
 }
