@@ -6,5 +6,5 @@ import org.springframework.data.repository.CrudRepository;
 import java.util.List;
 
 public interface CustomerRepository extends CrudRepository<Customer,Integer> {
-    public List<Customer> findAllByCustomerTypeId(Integer customerTypeId);
+    List<Customer> findAllByCustomerTypeId(Integer customerTypeId);
 }
